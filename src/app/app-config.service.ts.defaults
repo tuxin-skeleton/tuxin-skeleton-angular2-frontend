@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
+export class AppConfigService {
+  public config: any = {
+    auth0ApiKey: '<API_KEY>',
+    auth0Domain: '<DOMAIN>',
+    auth0CallbackUrl: '<CALLBACK_URL>',
+    appBaseHref: '/'
+  }
+
+  constructor() {}
+
+  /* Allows you to update any of the values dynamically */
+  set(k: string, v: any): void {
+    this.config[k] = v;
+  }
+
+  /* Returns the entire config object or just one value if key is provided */
+  get(k: string): any {
+    return k ? this.config[k] : this.config;
+  }
+}
